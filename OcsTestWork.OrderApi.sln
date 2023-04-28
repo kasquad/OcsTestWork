@@ -5,6 +5,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{7C648F55-763D-4843-A8C9-5460C29D3E2A}"
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md
+		Dockerfile = Dockerfile
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B2E2A6B5-2FC7-4D12-86D4-F56FDF19E4C2}"
