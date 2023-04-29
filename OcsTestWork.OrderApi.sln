@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{7C648F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B2E2A6B5-2FC7-4D12-86D4-F56FDF19E4C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcsTestWork.OrderApi", "src\OcsTestWork.OrderApi\OcsTestWork.OrderApi.csproj", "{EBD9A4F9-62D1-46E4-90C9-8E0A3351DC2F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcsTestWork.OrderApi", "src\OcsTestWork.OrderApi\OcsTestWork.OrderApi.csproj", "{DF4119C3-3E02-41B0-A252-40E6D6F442DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,12 +18,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{EBD9A4F9-62D1-46E4-90C9-8E0A3351DC2F} = {2989CA6E-F56F-4F84-B505-6129BC6F6901}
+		{DF4119C3-3E02-41B0-A252-40E6D6F442DB} = {2989CA6E-F56F-4F84-B505-6129BC6F6901}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EBD9A4F9-62D1-46E4-90C9-8E0A3351DC2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EBD9A4F9-62D1-46E4-90C9-8E0A3351DC2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EBD9A4F9-62D1-46E4-90C9-8E0A3351DC2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EBD9A4F9-62D1-46E4-90C9-8E0A3351DC2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF4119C3-3E02-41B0-A252-40E6D6F442DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF4119C3-3E02-41B0-A252-40E6D6F442DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF4119C3-3E02-41B0-A252-40E6D6F442DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF4119C3-3E02-41B0-A252-40E6D6F442DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
