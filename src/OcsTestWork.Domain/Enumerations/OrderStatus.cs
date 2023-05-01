@@ -4,7 +4,7 @@ namespace OcsTestWork.Domain.Enumerations;
 
 public class OrderStatus : Enumeration
 {
-    public OrderStatus(int id, string name) : base(id, name)
+    public OrderStatus(Int16 id, string name) : base(id, name)
     {
     }
 

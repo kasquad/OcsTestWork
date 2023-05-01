@@ -18,6 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\OcsTestWork.Migrator\OcsTestWork.Migrator.csproj" />
       <ProjectReference Include="..\OcsTestWork.Persistence\OcsTestWork.Persistence.csproj" />
     </ItemGroup>
 </Project>

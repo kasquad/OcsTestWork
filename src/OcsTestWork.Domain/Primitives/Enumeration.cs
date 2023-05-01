@@ -5,9 +5,9 @@ namespace OcsTestWork.Domain.Primitives;
 public abstract class Enumeration : IComparable
 {
     public string Name { get; }
-    public int Id { get; }
+    public Int16 Id { get; }
 
-    protected Enumeration(int id, string name) => (Id, Name) = (id, name);
+    protected Enumeration(Int16 id, string name) => (Id, Name) = (id, name);
     public override string ToString() => Name;
 
     public static IEnumerable<T> GetAll<T>() where T : Enumeration =>
