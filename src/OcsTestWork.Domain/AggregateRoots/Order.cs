@@ -1,4 +1,5 @@
 ﻿using OcsTestWork.Domain.Entities;
+using OcsTestWork.Domain.Enumerations;
 using OcsTestWork.Domain.Primitives;
 
 namespace OcsTestWork.Domain.AggregateRoots;
@@ -9,6 +10,6 @@ public class Order : AggregateRoot
     {
     }
     
-    public int Status { get; set; }
+    public OrderStatus Status { get; set; }
     public IEnumerable<OrderedProduct> OrderedProducts { get; set; }
 }
