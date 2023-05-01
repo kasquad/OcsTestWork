@@ -10,7 +10,7 @@ public static class WebApplicationBuilderExtension
     public static WebApplicationBuilder AddHttp(this WebApplicationBuilder builder)
     {
         builder.Services.AddControllers(options => options.Filters.Add<GlobalExceptionFilter>());
-
+        
         return builder;
     }
     
@@ -27,13 +27,9 @@ public static class WebApplicationBuilderExtension
             
             options.IncludeXmlComments(xmlFilePath);
         });
-
-
         
-        
-        
-        builder.Services.AddSingleton<IStartupFilter, SwaggerStartupFilter>();
-        
+        // TODO: Find why this broke endpoints
+        // builder.Services.AddSingleton<IStartupFilter, SwaggerStartupFilter>();
         return builder;
     }
 }

@@ -4,6 +4,7 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 as build
 WORKDIR /src
 # Копирует файл в директорию контейнера src
 COPY ["src/OcsTestWork.OrderApi/OcsTestWork.OrderApi.csproj","src/OcsTestWork.OrderApi/"]
+
 # Восстанавливает зависимости
 RUN dotnet restore "src/OcsTestWork.OrderApi/OcsTestWork.OrderApi.csproj"
 
@@ -18,7 +19,7 @@ FROM build as publish
 RUN dotnet publish "OcsTestWork.OrderApi.csproj" -c Release -o /app/publish
 
 
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 as runtime
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 as runtime
 
 WORKDIR /app
 
