@@ -29,19 +29,20 @@ namespace OcsTestWork.Migrator.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<short>("Status")
-                        .HasColumnType("smallint")
+                    b.Property<int>("Status")
+                        .HasColumnType("integer")
                         .HasColumnName("status");
 
                     b.HasKey("Id");
 
-                    b.ToTable("orders");
+                    b.HasIndex("Id");
+
+                    b.ToTable("orders", (string)null);
                 });
 
             modelBuilder.Entity("OcsTestWork.Persistence.DbModels.OrderedProductDb", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
@@ -53,11 +54,11 @@ namespace OcsTestWork.Migrator.Migrations
                         .HasColumnType("bigint")
                         .HasColumnName("quantity");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id", "OrderId");
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("ordered_products");
+                    b.ToTable("ordered_products", (string)null);
                 });
 
             modelBuilder.Entity("OcsTestWork.Persistence.DbModels.OrderedProductDb", b =>

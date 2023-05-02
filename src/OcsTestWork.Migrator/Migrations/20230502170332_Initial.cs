@@ -16,7 +16,7 @@ namespace OcsTestWork.Migrator.Migrations
                 columns: table => new
                 {
                     id = table.Column<Guid>(type: "uuid", nullable: false),
-                    status = table.Column<short>(type: "smallint", nullable: false)
+                    status = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,7 +33,7 @@ namespace OcsTestWork.Migrator.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ordered_products", x => x.id);
+                    table.PrimaryKey("PK_ordered_products", x => new { x.id, x.order_id });
                     table.ForeignKey(
                         name: "FK_ordered_products_orders_order_id",
                         column: x => x.order_id,
@@ -46,6 +46,11 @@ namespace OcsTestWork.Migrator.Migrations
                 name: "IX_ordered_products_order_id",
                 table: "ordered_products",
                 column: "order_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_orders_id",
+                table: "orders",
+                column: "id");
         }
 
         /// <inheritdoc />

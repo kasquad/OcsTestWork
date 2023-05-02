@@ -7,7 +7,7 @@ namespace OcsTestWork.Persistence.DbModels;
 
 public partial class OrderDb
 {
-    public static Order MapToOrder(OrderDb orderDb)
+    public static Order? MapToOrder(OrderDb? orderDb)
     {
         var orderStatus = Enumeration.GetAll<OrderStatus>()
             .FirstOrDefault(s => s.Id == orderDb.Status);

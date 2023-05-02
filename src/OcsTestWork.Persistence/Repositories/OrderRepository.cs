@@ -20,7 +20,7 @@ public class OrderRepository : IOrderRepository
     /// <param name="orderId"></param>
     /// <param name="cancellationToken"></param>
     /// <returns>Order</returns>
-    public async Task<Order> GetById(
+    public async Task<Order?> GetByIdOrDefault(
         Guid orderId,
         CancellationToken cancellationToken)
     {
@@ -28,7 +28,7 @@ public class OrderRepository : IOrderRepository
             .Orders
             .Include(o => o.OrderedProducts)
             .AsNoTracking()
-            .FirstAsync(o => o.Id == orderId,
+            .FirstOrDefaultAsync(o => o.Id == orderId,
                 cancellationToken: cancellationToken);
 
         return OrderDb.MapToOrder(order);

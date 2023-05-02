@@ -18,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\OcsTestWork.HttpModels\OcsTestWork.HttpModels.csproj" />
+      <ProjectReference Include="..\OcsTestWork.Application\OcsTestWork.Application.csproj" />
       <ProjectReference Include="..\OcsTestWork.Migrator\OcsTestWork.Migrator.csproj" />
       <ProjectReference Include="..\OcsTestWork.Persistence\OcsTestWork.Persistence.csproj" />
     </ItemGroup>
