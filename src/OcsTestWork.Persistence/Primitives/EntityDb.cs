@@ -1,9 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿namespace OcsTestWork.Persistence.Primitives;
 
-namespace OcsTestWork.Persistence.Primitives;
-
+/// <summary>
+/// New guid auto generate.
+/// </summary>
 public abstract class EntityDb
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
 }

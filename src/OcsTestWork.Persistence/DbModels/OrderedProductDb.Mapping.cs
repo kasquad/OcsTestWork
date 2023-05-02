@@ -6,9 +6,6 @@ public partial class OrderedProductDb
 {
     public static explicit operator OrderedProduct(OrderedProductDb orderedProductDb)
     {
-        return new OrderedProduct(orderedProductDb.Id)
-        {
-            Quantity = orderedProductDb.Quantity
-        };
+        return new OrderedProduct(orderedProductDb.Id, orderedProductDb.Quantity);
     }
 }

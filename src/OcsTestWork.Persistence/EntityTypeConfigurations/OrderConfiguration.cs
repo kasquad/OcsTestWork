@@ -9,6 +9,9 @@ public class OrderConfiguration : IEntityTypeConfiguration<OrderDb>
     public void Configure(EntityTypeBuilder<OrderDb> builder)
     {
         builder
+            .ToTable("orders");
+        
+        builder
             .HasKey(e => e.Id);
         
         builder

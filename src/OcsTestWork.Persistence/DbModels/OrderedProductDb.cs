@@ -4,7 +4,6 @@ using OcsTestWork.Persistence.Primitives;
 
 namespace OcsTestWork.Persistence.DbModels;
 
-[Table("ordered_products")]
 public partial class OrderedProductDb : EntityDb
 {
     public OrderDb Order { get; set; }

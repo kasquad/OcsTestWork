@@ -9,6 +9,9 @@ public class OrderedProductConfiguration : IEntityTypeConfiguration<OrderedProdu
     public void Configure(EntityTypeBuilder<OrderedProductDb> builder)
     {
         builder
+            .ToTable("ordered_products");
+        
+        builder
             .Property(e => e.Id)
             .HasColumnName("id");
 
