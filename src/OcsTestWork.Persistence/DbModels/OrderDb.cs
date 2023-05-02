@@ -8,8 +8,6 @@ namespace OcsTestWork.Persistence.DbModels;
 [Table("orders")]
 public partial class OrderDb : EntityDb
 {
-    [Required]
-    [Column("status")]
-    public Int16 Status { get; set; } = OrderStatus.New.Id;
+    public int Status { get; set; } = OrderStatus.New.Id;
     public HashSet<OrderedProductDb> OrderedProducts { get; set; }
 }
