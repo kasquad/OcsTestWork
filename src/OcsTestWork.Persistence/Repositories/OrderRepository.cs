@@ -44,7 +44,7 @@ public class OrderRepository : IOrderRepository
             .AddAsync(orderDb, cancellationToken);
         var addResult = await _context.SaveChangesAsync(cancellationToken);
 
-        return addResult == 1;
+        ;return addResult == 1;
     }
 
     public async Task<bool> Update(
@@ -53,12 +53,10 @@ public class OrderRepository : IOrderRepository
     {
         var orderDb = OrderDb.MapFromOrder(order);
 
-        var editResult = await _context.Orders
-            .Where(o => o.Id == orderDb.Id)
-            .ExecuteUpdateAsync(s => s
-                .SetProperty(o => o.Status, orderDb.Status)
-                .SetProperty(o => o.OrderedProducts, orderDb.OrderedProducts), cancellationToken: cancellationToken);
+        _context.Orders.Update(orderDb);
 
+        var editResult = await _context.SaveChangesAsync(cancellationToken);
+        
         return editResult == 1;
     }
 
