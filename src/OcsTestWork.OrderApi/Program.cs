@@ -1,15 +1,18 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
+using OcsTestWork.Application.Extensions;
 using OcsTestWork.OrderApi.Infrastructure.Extensions;
 using OcsTestWork.Persistence;
 using OcsTestWork.Persistence.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddPersistence();
+
+builder.Services.AddApplication();
 builder.AddHttp();
 // Add services to the container.
-builder.Services.AddPersistence();
 builder.AddInfrastructure();
 
 builder.Services.AddEndpointsApiExplorer();

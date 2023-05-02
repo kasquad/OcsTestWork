@@ -17,7 +17,7 @@
       "applicationUrl": "http://localhost:5048",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "DefaultPostgresConnectionString": "Host=localhost;Database=order-api;Username=postgres;Password=orderApiPassword;"
+        "DefaultPostgresConnectionString": "Host=localhost:5426;Database=order-api;Username=postgres;Password=orderApiPassword;"
       }
     },
     "https": {

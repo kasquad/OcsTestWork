@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using OcsTestWork.Application.Models.Order;
 using OcsTestWork.Application.Orders.Commands.Create;
 using OcsTestWork.Application.Orders.Commands.Delete;
@@ -37,7 +38,7 @@ public class OrderController : AppControllerBase
     /// <param name="orderCreateVm"></param>
     /// <returns></returns>
     [HttpPost]
-    public async Task<ActionResult<OrderVm>> Create(OrderCreateVm orderCreateVm)
+    public async Task<ActionResult<OrderVm>> Create([FromBody]OrderCreateVm orderCreateVm)
     {
         var command = new CreateOrderCommand(orderCreateVm.id,
             orderCreateVm.lines.Select(l => new OrderedProduct(l.id, l.qty)));
@@ -53,7 +54,7 @@ public class OrderController : AppControllerBase
     }
     
     [HttpPut]
-    public async Task<ActionResult<OrderVm>> Update(OrderUpdateVm orderUpdateVm)
+    public async Task<ActionResult<OrderVm>> Update([FromBody]OrderUpdateVm orderUpdateVm)
     {
         var command = new UpdateOrderCommand(orderUpdateVm.id,
             orderUpdateVm.status,
@@ -82,5 +83,9 @@ public class OrderController : AppControllerBase
         }
         
         return BadRequest(result.Errors);
+    }
+
+    public OrderController(ISender sender) : base(sender)
+    {
     }
 }

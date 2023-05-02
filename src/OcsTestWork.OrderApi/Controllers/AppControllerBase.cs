@@ -5,8 +5,14 @@ namespace OcsTestWork.OrderApi.Controllers;
 
 public class AppControllerBase : ControllerBase
 {
+    public AppControllerBase(ISender sender)
+    {
+        _sender = sender;
+    }
+
     private ISender _sender { get; set; }
     
-    protected ISender Sender =>
-        _sender ??= HttpContext.RequestServices.GetService<ISender>();
+    protected ISender Sender { get => _sender; }
+    
+   
 }
