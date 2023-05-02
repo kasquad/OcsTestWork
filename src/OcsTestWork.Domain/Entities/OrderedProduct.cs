@@ -11,6 +11,8 @@ public class OrderedProduct : Entity
         {
             throw new DomainException("Quantity of ordered products must be grate than zero.");
         }
+
+        Quantity = quantity;
     }
     public uint Quantity { get; private set; }
 }

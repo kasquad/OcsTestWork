@@ -1,4 +1,5 @@
-﻿using OcsTestWork.HttpModels.OrderedProduct;
+﻿using System.Data;
+using OcsTestWork.HttpModels.OrderedProduct;
 
 namespace OcsTestWork.Application.Models.Order;
 
@@ -17,6 +18,7 @@ public class OrderVm
         return new OrderVm()
         {
             id = order.Id,
+            status = order.Status.Name,
             lines = order.OrderedProducts.Select(p => new OrderedProductModel()
             {
                 id = p.Id,
