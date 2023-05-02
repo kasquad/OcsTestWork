@@ -6,6 +6,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{7C648F
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md
 		Dockerfile = Dockerfile
+		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B2E2A6B5-2FC7-4D12-86D4-F56FDF19E4C2}"
@@ -13,6 +14,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcsTestWork.OrderApi", "src\OcsTestWork.OrderApi\OcsTestWork.OrderApi.csproj", "{DF4119C3-3E02-41B0-A252-40E6D6F442DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcsTestWork.Domain", "src\OcsTestWork.Domain\OcsTestWork.Domain.csproj", "{3C33220B-4A6C-4554-B1E5-96F8B751DD98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcsTestWork.Persistence", "src\OcsTestWork.Persistence\OcsTestWork.Persistence.csproj", "{FBA45500-B905-4835-B05F-D69853454308}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcsTestWork.Migrator", "src\OcsTestWork.Migrator\OcsTestWork.Migrator.csproj", "{951A8BFC-E8BB-4481-BDA6-BCB6A60C6353}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcsTestWork.HttpModels", "src\OcsTestWork.HttpModels\OcsTestWork.HttpModels.csproj", "{A66A761B-D992-47AB-9250-D400FCAC2596}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,6 +29,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{DF4119C3-3E02-41B0-A252-40E6D6F442DB} = {2989CA6E-F56F-4F84-B505-6129BC6F6901}
 		{3C33220B-4A6C-4554-B1E5-96F8B751DD98} = {2989CA6E-F56F-4F84-B505-6129BC6F6901}
+		{FBA45500-B905-4835-B05F-D69853454308} = {2989CA6E-F56F-4F84-B505-6129BC6F6901}
+		{951A8BFC-E8BB-4481-BDA6-BCB6A60C6353} = {2989CA6E-F56F-4F84-B505-6129BC6F6901}
+		{A66A761B-D992-47AB-9250-D400FCAC2596} = {2989CA6E-F56F-4F84-B505-6129BC6F6901}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{DF4119C3-3E02-41B0-A252-40E6D6F442DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -32,5 +42,17 @@ Global
 		{3C33220B-4A6C-4554-B1E5-96F8B751DD98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C33220B-4A6C-4554-B1E5-96F8B751DD98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C33220B-4A6C-4554-B1E5-96F8B751DD98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBA45500-B905-4835-B05F-D69853454308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBA45500-B905-4835-B05F-D69853454308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBA45500-B905-4835-B05F-D69853454308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBA45500-B905-4835-B05F-D69853454308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{951A8BFC-E8BB-4481-BDA6-BCB6A60C6353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{951A8BFC-E8BB-4481-BDA6-BCB6A60C6353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{951A8BFC-E8BB-4481-BDA6-BCB6A60C6353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{951A8BFC-E8BB-4481-BDA6-BCB6A60C6353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A66A761B-D992-47AB-9250-D400FCAC2596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A66A761B-D992-47AB-9250-D400FCAC2596}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A66A761B-D992-47AB-9250-D400FCAC2596}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A66A761B-D992-47AB-9250-D400FCAC2596}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

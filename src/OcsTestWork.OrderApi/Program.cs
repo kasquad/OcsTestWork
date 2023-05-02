@@ -1,20 +1,26 @@
 using OcsTestWork.OrderApi.Infrastructure.Extensions;
+using OcsTestWork.Persistence.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.AddHttp();
-
-builder.Services.AddEndpointsApiExplorer();
+// Add services to the container.
+builder.Services.AddPersistence();
 builder.AddInfrastructure();
 
+builder.Services.AddEndpointsApiExplorer();
+// builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-app.UseHttpsRedirection();
+// Configure the HTTP request pipeline.
+    app.UseSwagger();
+    app.UseSwaggerUI();
+
+// app.UseHttpsRedirection();
+
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
-

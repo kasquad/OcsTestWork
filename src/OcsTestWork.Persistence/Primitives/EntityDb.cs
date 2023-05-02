@@ -1,4 +1,7 @@
-﻿namespace OcsTestWork.Persistence.Primitives;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace OcsTestWork.Persistence.Primitives;
 
 public abstract class EntityDb
 {

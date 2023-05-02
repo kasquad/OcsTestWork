@@ -11,5 +11,5 @@ public class Order : AggregateRoot
     }
     
     public OrderStatus Status { get; set; }
-    public IEnumerable<OrderedProduct> OrderedProducts { get; set; }
+    public HashSet<OrderedProduct> OrderedProducts { get; set; }
 }

@@ -1,8 +1,13 @@
-﻿using OcsTestWork.Persistence.Primitives;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using OcsTestWork.Persistence.Primitives;
 
 namespace OcsTestWork.Persistence.DbModels;
 
-public class OrderedProductDb : EntityDb
+[Table("ordered_products")]
+public partial class OrderedProductDb : EntityDb
 {
-    // public 
+    public OrderDb Order { get; set; }
+    public Guid OrderId { get; set; }
+    public uint Quantity { get; set; } = 1;
 }

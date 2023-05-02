@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  order-api:
+    image: 'order-api'
+    hostname: order_api
+    ports: 
+      - "8080:80"
+    environment:
+      "DefaultPostgresConnectionString": "Host=postgres;Database=order-api;Username=postgres;Password=orderApiPassword;"
+      
+    depends_on:
+      - order-api-db
+    
+  order-api-db: 
+    image: postgres:15.2
+    hostname: postgres
+    ports:
+      - "5426:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: orderApiPassword
+      POSTGRES_DB: order-api
+    command: "-c log_statement=all"
