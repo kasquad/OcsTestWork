@@ -11,6 +11,7 @@ public static class ServiceCollectionExtension
         {
             options.UseNpgsql(Environment.GetEnvironmentVariable("DefaultPostgresConnectionString"));
         });
+
         return services;
     }
 }

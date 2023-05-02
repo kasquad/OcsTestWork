@@ -9,8 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{7C648F
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B2E2A6B5-2FC7-4D12-86D4-F56FDF19E4C2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcsTestWork.OrderApi", "src\OcsTestWork.OrderApi\OcsTestWork.OrderApi.csproj", "{DF4119C3-3E02-41B0-A252-40E6D6F442DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcsTestWork.Domain", "src\OcsTestWork.Domain\OcsTestWork.Domain.csproj", "{3C33220B-4A6C-4554-B1E5-96F8B751DD98}"
