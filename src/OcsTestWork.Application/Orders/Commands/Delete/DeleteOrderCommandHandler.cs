@@ -15,12 +15,8 @@ public class DeleteOrderCommandHandler : IAppRequestHandler<DeleteOrderCommand>
 
     public async Task<Result> Handle(DeleteOrderCommand command, CancellationToken cancellationToken)
     {
-        var isDeleted = await _orderRepo.DeleteById(command.orderId, cancellationToken);
-
-        if (isDeleted)
-        {
-            return Result.Failure("Order with that id not exists");
-        }
+        await _orderRepo.DeleteById(command.orderId, cancellationToken);
+        
         return Result.Success();
     }
 }

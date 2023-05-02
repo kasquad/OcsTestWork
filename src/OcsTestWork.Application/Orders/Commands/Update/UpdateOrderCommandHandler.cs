@@ -28,12 +28,8 @@ public class UpdateOrderCommandHandler : IAppRequestHandler<UpdateOrderCommand,O
         } 
         order.Update(command.OrderedProducts,command.status);
         
-        var isUpdated = await _orderRepo.Update(order, cancellationToken);
-
-        if (!isUpdated)
-        {
-            return Result<OrderVm>.Failure("Somethind whent wrong.");
-        }
+        await _orderRepo.Update(order, cancellationToken);
+        
 
         return Result<OrderVm>.Success(OrderVm.ToOrderVm(order));
     }

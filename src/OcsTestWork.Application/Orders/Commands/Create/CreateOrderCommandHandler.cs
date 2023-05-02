@@ -23,14 +23,9 @@ public class CreateOrderCommandHandler : IAppRequestHandler<CreateOrderCommand,O
         var order = Order
             .CreateNew(command.OrderId, command.OrderedProducts.Select(p => new OrderedProduct(p.Id, p.Quantity)));
         
-        var isSuccess = await _orderRepo
+        await _orderRepo
             .Create(order, cancellationToken);
-
-        if (!isSuccess)
-        {
-            return Result<OrderVm>.Failure("Order with same id is present");
-        }
-
+        
         var orderVm = OrderVm.ToOrderVm(order);
 
         return Result<OrderVm>.Success(orderVm);
