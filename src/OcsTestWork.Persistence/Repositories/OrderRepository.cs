@@ -34,30 +34,58 @@ public class OrderRepository : IOrderRepository
         return OrderDb.MapToOrder(order);
     }
 
-    public async Task<bool> Create(
+    public async Task Create(
         Order order,
         CancellationToken cancellationToken)
     {
-        var orderDb = OrderDb.MapFromOrder(order);
+        var orderCreate = OrderDb.MapFromOrder(order);
 
         await _context.Orders
-            .AddAsync(orderDb, cancellationToken);
+            .AddAsync(orderCreate, cancellationToken);
         var addResult = await _context.SaveChangesAsync(cancellationToken);
-
-        ;return addResult == 1;
     }
 
-    public async Task<bool> Update(
-        Order order,
+    public async Task Update(
+        Order orderUpdate,
         CancellationToken cancellationToken)
     {
-        var orderDb = OrderDb.MapFromOrder(order);
+        var order = OrderDb.MapFromOrder(orderUpdate);
 
-        _context.Orders.Update(orderDb);
+        var existingOrder = await _context.Orders
+            .Include(o => o.OrderedProducts)
+            .FirstOrDefaultAsync(o => o.Id == order.Id, cancellationToken);
 
-        var editResult = await _context.SaveChangesAsync(cancellationToken);
+        if (existingOrder == null)
+        {
+            throw new Exception("Order is not found.");
+        }
         
-        return editResult == 1;
+        existingOrder.Status = order.Status;
+        
+        foreach (var orderedProduct in order.OrderedProducts)
+        {
+            var existingChildEntity = existingOrder.OrderedProducts
+                .FirstOrDefault(c => c.Id == orderedProduct.Id);
+
+            if (existingChildEntity != null)
+            {
+                existingChildEntity.Quantity = orderedProduct.Quantity;
+            }
+            else
+            {
+                existingOrder.OrderedProducts.Add(orderedProduct);
+            }
+        }
+
+        foreach (var orderedProduct in existingOrder.OrderedProducts.ToList())
+        {
+            if (order.OrderedProducts.All(c => c.Id != orderedProduct.Id))
+            {
+                existingOrder.OrderedProducts.Remove(orderedProduct);
+            }
+        }
+
+        await _context.SaveChangesAsync(cancellationToken);
     }
 
     /// <summary>
@@ -66,7 +94,7 @@ public class OrderRepository : IOrderRepository
     /// <param name="orderId"></param>
     /// <param name="cancellationToken"></param>
     /// <returns>True if delete is success</returns>
-    public async Task<bool> DeleteById(
+    public async Task DeleteById(
         Guid orderId,
         CancellationToken cancellationToken)
     {
@@ -74,7 +102,5 @@ public class OrderRepository : IOrderRepository
             .Orders
             .Where(o => o.Id == orderId)
             .ExecuteDeleteAsync(cancellationToken: cancellationToken);
-
-        return deleteResult == 1;
     }
 }
