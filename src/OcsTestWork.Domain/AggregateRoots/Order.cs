@@ -30,7 +30,7 @@ public class Order : AggregateRoot
     {
         if (orderedProducts.Count() != orderedProducts.DistinctBy(p => p.Id).Count())
         {
-            throw new DomainException("U cant add two or more same products");
+            throw new DomainException("U cant add two or more same products.");
         }
         return new Order(id, OrderStatus.New, new HashSet<OrderedProduct>(orderedProducts),DateTime.UtcNow);
     }
@@ -38,13 +38,18 @@ public class Order : AggregateRoot
     {
         if (orderedProducts.Count() != orderedProducts.DistinctBy(p => p.Id).Count())
         {
-            throw new DomainException("U cant add two or more same products");
+            throw new DomainException("You cant add two or more same products");
         }
 
         var orderStatus = Enumeration.GetAll<OrderStatus>().FirstOrDefault(s => s.Name == status);
         if (orderStatus == default)
         {
             throw new DomainException("Invalid order status");
+        }
+
+        if (orderStatus.Id != OrderStatus.New.Id)
+        {
+            throw new DomainException("You cant edit order where order status is not new.");
         }
 
         OrderedProducts = new HashSet<OrderedProduct>(orderedProducts);
