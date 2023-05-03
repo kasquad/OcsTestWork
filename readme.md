@@ -2,5 +2,5 @@
  
  Инструкция по развёртыванию:
  
-Собрать докер файл (docker build . -t order-api)
-Сделать compose docker-compose.yml
+1. Собрать докер файл (docker build . -t order-api)
+2. Поднять окружение и контейнеры docker compose up
